@@ -1,0 +1,25 @@
+.container{
+    display: flex;
+    border: solid black;
+    /* max-width: 50vw; */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.loginContainer{
+    max-width: 40%;
+    padding: 50px;
+    background-color: hsla(0, 8%, 65%, 0.941);
+    border-radius: 5px;
+}
+
+.inputUserNameField {
+    width: 20vw;
+    height: 5vh;
+}
+
+.inputPasswordField{
+    width: 20vw;
+    height: 5vh;
+}
