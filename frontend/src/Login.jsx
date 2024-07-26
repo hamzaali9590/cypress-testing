@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import './Login.css';
 
 class Login extends Component {
@@ -18,12 +19,6 @@ class Login extends Component {
     this.setState({ password: event.target.value });
   };
 
-//   handleSubmit = (event) => {
-//     event.preventDefault();
-//     this.setState({userName: '', password: ''});
-//     console.log("User Name:", this.state.userName, "Password: ", this.state.password);
-//   }
-
    fetchData = async (event) => {
        event.preventDefault();
         try{
@@ -39,6 +34,7 @@ class Login extends Component {
             });
             if(response.ok){
                 const result = await response.json();
+                this.props.history.push('/dashboard');       
                 console.log(result);
             }
             this.setState({userName: '', password: ''});
@@ -58,7 +54,7 @@ class Login extends Component {
         <form onSubmit={this.fetchData}>
             <input type="text" placeholder="User Name" value={this.state.userName} onChange={this.handleUserNameChange} className='inputUserNameField' /><br/><br/>
 
-            <input type="text" placeholder="password" value={this.state.password} onChange={this.handlePasswordChange} className='inputPasswordField'/><br/><br/>
+            <input type="password" placeholder="password" value={this.state.password} onChange={this.handlePasswordChange} className='inputPasswordField'/><br/><br/>
             <input type="submit" />
           </form>
  
@@ -68,4 +64,4 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export default withRouter(Login);

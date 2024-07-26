@@ -9,8 +9,12 @@ app.use(express.json())
 const port = 3000;
 
 
+app.get('/dashboard', (req, res) => {
+    res.send("Welcome to the dashboard");
+})
+
 app.get('/', (req, res) => {
-    res.send("Home Page");
+    res.send("Welcome to the Homepage");
 })
 
 app.post('/login', function (req, res) {
@@ -21,13 +25,12 @@ app.post('/login', function (req, res) {
 
     fs.readFile(filePath, (err, data) => {
         if (err) {
-            console.log(`Error in reading data ${err}`);
+            return res.status(404).json(`Error in reading data ${err}`) ;
         }
         const jsonData = JSON.parse(data);
 
         if (userName !== jsonData.valid.username || password !== jsonData.valid.password) {
-            res.sendStatus(401);
-            console.log('User name or password is not correct');
+            res.status(401).json('User name or password is not correct');
         } else {
             res.status(201).json('Login successful');
         }
