@@ -1,0 +1,11 @@
+{
+    "validEmail": "hamza.ali@srjca.com",
+    "validPassword": "password",
+    "doesNotExistEmail": "invalid@example.com",
+    "invalidPassword": "wrongpassword",
+    "invalidEmail": "invalidemail",
+    "invalidEmailFormat": "invalidemail@",
+    "validLoginMessage" : "Welcome Hamza !",
+    "invalidLoginMessage" : "Invalid username or password",
+    "invalidEmailMessage" : "Invalid email format"
+}
