@@ -7,5 +7,7 @@
     "invalidEmailFormat": "invalidemail@",
     "validLoginMessage" : "Welcome Hamza !",
     "invalidLoginMessage" : "Invalid username or password",
-    "invalidEmailMessage" : "Invalid email format"
+    "invalidEmailMessage" : "Invalid email format",
+    "tokenName" : "auth_token",
+    "validUserId" : 102
 }
