@@ -4,7 +4,7 @@ describe('The Engagement Page', () => {
     password: 'password',
   };
 
-  const workflow = 'T3';
+  const workflow = 'T2';
   const loginUrl = 'http://localhost:3000/login';
   const baseUrl = `http://localhost:3000/workflow/${workflow.toLowerCase()}`;
 
@@ -24,6 +24,9 @@ describe('The Engagement Page', () => {
     // Select and count results of view container
     cy.selectAndCountResults();
 
+    // Collapse Engagement
+    cy.collapseAllEngagements();
+
     // Date filter
     cy.applyDateFilter();
 
@@ -39,10 +42,19 @@ describe('The Engagement Page', () => {
     // Columns filter
     cy.applyColumnsFilter();
 
-    // Create new filter
-    cy.createNewFilter();
+    // Search text
+    cy.searchBar();
+    cy.clearSearchBar();
+
+    // Select and interact with an individual engagement 
+    cy.engagementsInteraction('Demo note 1');
+
+    // Create new engagement
+    cy.createNewEngagement();
 
     // Reset all filters
     cy.workflowSelector('T2');
+
+
   });
 });
